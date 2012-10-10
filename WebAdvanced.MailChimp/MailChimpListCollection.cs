@@ -19,6 +19,11 @@ namespace WebAdvanced.MailChimp {
         public string Key(Func<MailChimpList, bool> func) {
             return _mailChimpLists.Where(func).Select(x => x.Key).First();
         }
+
+        public string Key(string name) {
+            return _mailChimpLists.Where(x => x.Name == name).Select(x => x.Key).First();
+        }
+
         public IEnumerator<MailChimpList> GetEnumerator() {
             return _mailChimpLists.GetEnumerator();
         }
